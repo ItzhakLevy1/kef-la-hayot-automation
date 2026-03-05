@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.HighlightUtils;
 import java.time.Duration;
 
 public class CookieBannerComponent {
@@ -32,6 +33,8 @@ public class CookieBannerComponent {
     public void acceptCookies() {
         try {
             WebElement button = wait.until(ExpectedConditions.elementToBeClickable(cookieAcceptBtn));
+            // Highlight the button before clicking
+            HighlightUtils.highlightElement(driver, button);
             button.click();
         } catch (Exception e) {
             System.out.println("Cookie banner not found or already closed");
