@@ -18,6 +18,7 @@ public class RegistrationPage extends BasePage {
     private By passwordField = By.cssSelector(".contact #customer_set_password");
     private By confirmPasswordField = By.cssSelector(".contact #customer_set_password_confirmation");
     private By registerBtn = By.cssSelector("[href='#customer']");
+    private By termsCheckbox = By.cssSelector("#terms_agree__customers_2");
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
@@ -48,5 +49,19 @@ public class RegistrationPage extends BasePage {
         // Applying highlight before click to ensure it's captured in the report/video
         HighlightUtils.highlightElement(driver, btn);
         btn.click();
+    }
+
+    @Step("Accepting terms and conditions using JS Click to bypass overlays")
+    public void acceptTerms() {
+        WebElement checkbox = driver.findElement(termsCheckbox);
+
+        // Use JavascriptExecutor to click even if obscured by the Cookie banner
+        org.openqa.selenium.JavascriptExecutor js = (org.openqa.selenium.JavascriptExecutor) driver;
+
+        if (!checkbox.isSelected()) {
+            HighlightUtils.highlightElement(driver, checkbox);
+            // This bypasses the "ElementClickInterceptedException"
+            js.executeScript("arguments[0].click();", checkbox);
+        }
     }
 }

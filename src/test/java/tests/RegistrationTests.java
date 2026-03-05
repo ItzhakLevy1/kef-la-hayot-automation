@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
 import io.qameta.allure.Description;
+import utils.AllureAttachments;
 
 public class RegistrationTests extends BaseTest {
 
@@ -47,5 +48,41 @@ public class RegistrationTests extends BaseTest {
                 "BUG FOUND: The system allowed registration without accepting the mandatory Terms and Conditions!");
 
         System.out.println("Test Completed. Current URL: " + currentUrl);
+    }
+
+    @Test
+    @Description("TC-07: Verify system allows registration with a phone number that already exists")
+    public void testDuplicatePhoneRegistration() throws InterruptedException {
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+        registrationPage.navigateTo();
+
+        // 1. Generate a NEW unique email (to ensure the email itself isn't the blocker)
+        String newEmail = "unique_tester" + System.currentTimeMillis() + "@gmail.com";
+
+        // 2. Use a FIXED phone number that we know is already in the DB
+        String existingPhone = "0501234567";
+
+        // 3. Fill the form (excluding the manual Captcha part for now)
+        registrationPage.fillRegistrationForm("Duplicate Phone Test", newEmail, existingPhone, "Pass1234!");
+        registrationPage.acceptTerms();
+
+        // 4. SEMI-AUTOMATED STEP: Solve Captcha manually
+        System.out.println(">>> ACTION REQUIRED: Solve Captcha to test duplicate phone validation...");
+        Thread.sleep(15000);
+
+        // Manually capture screenshot to prove the checkbox status
+        AllureAttachments.saveScreenshot("Evidence - Terms checkbox status before submission", driver);
+
+        // 5. Submit
+        registrationPage.clickRegister();
+        Thread.sleep(5000);
+
+        // 6. ASSERTION:
+        // If the registration is successful (URL changes), it's a BUG.
+        // A correct system should show an error message like "Phone number already exists".
+        String currentUrl = driver.getCurrentUrl();
+
+        Assert.assertFalse(currentUrl.contains("signup") == false,
+                "BUG FOUND: System allowed registration with a duplicate phone number!");
     }
 }

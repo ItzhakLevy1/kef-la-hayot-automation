@@ -7,9 +7,13 @@
         <listener class-name="utils.TestListener"/>
     </listeners>
 
-    <test name="Regression Tests">
+    <test name="Single Bug Test">
         <classes>
-            <class name="tests.LogoutTests"/>
+            <class name="tests.RegistrationTests">
+                <methods>
+                    <include name="testDuplicatePhoneRegistration"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
