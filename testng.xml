@@ -11,7 +11,7 @@
         <classes>
             <class name="tests.RegistrationTests">
                 <methods>
-                    <include name="testDuplicatePhoneRegistration"/>
+                    <include name="testRegistrationButtonOverlap"/>
                 </methods>
             </class>
         </classes>

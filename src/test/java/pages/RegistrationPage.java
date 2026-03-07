@@ -19,6 +19,8 @@ public class RegistrationPage extends BasePage {
     private By confirmPasswordField = By.cssSelector(".contact #customer_set_password_confirmation");
     private By registerBtn = By.cssSelector("[href='#customer']");
     private By termsCheckbox = By.cssSelector("#terms_agree__customers_2");
+    private By termsAndConditionsLabel = By.cssSelector("[for='terms_agree__customers_2']");
+
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
@@ -63,5 +65,17 @@ public class RegistrationPage extends BasePage {
             // This bypasses the "ElementClickInterceptedException"
             js.executeScript("arguments[0].click();", checkbox);
         }
+    }
+
+    @Step("Highlighting overlap between the Registration button and the Terms label")
+    public void highlightOverlapArea() {
+
+        // Create access to both the confirmation button and the terms of conditions check box
+        WebElement checkboxElement = driver.findElement(termsAndConditionsLabel);
+        WebElement registerButton = driver.findElement(registerBtn);
+
+        HighlightUtils.highlightElement(driver, checkboxElement);
+        HighlightUtils.highlightElement(driver, registerButton);
+
     }
 }

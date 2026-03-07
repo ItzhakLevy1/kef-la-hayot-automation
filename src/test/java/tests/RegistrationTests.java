@@ -1,12 +1,31 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
-import io.qameta.allure.Description;
 import utils.AllureAttachments;
 
 public class RegistrationTests extends BaseTest {
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Feature("Registration UI") // Classification by feature
+    @Owner("Itzhak Levy") // Responsible for this test case
+    @Description("TC-05: Verify UI overlap - Registration button obscures Terms & Conditions text")
+    public void testRegistrationButtonOverlap() {
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.navigateTo();
+
+        registrationPage.highlightOverlapArea();
+
+        // Close the T&C popup
+        registrationPage.cookieBanner.acceptCookies();
+
+        utils.AllureAttachments.saveScreenshot("Overlap_Evidence", driver);
+    }
 
     @Test
     @Description("TC-06: Verify registration validation bug - system allows signup without accepting terms")
