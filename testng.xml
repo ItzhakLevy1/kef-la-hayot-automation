@@ -9,9 +9,9 @@
 
     <test name="Single Bug Test">
         <classes>
-            <class name="tests.ContactCaptchaTest">
+            <class name="tests.LinksPageTests">
                     <methods>
-                        <include name="verifyCaptcha"/>
+                        <include name="pageWithEmptySection"/>
                     </methods>
             </class>
         </classes>
