@@ -20,15 +20,15 @@ Automation discovered 13 functional and UI/UX defects. Below are the top 3 criti
 
 #### **1. Bug-06: T&C Acceptance Bypass (Blocker)**
 *The system allows registration without legal consent, creating severe compliance risk.*
-![Bug 06 Screenshot](.docs\images\bug06_validation_bypass.png)
+![Bug 06 Screenshot](.docs/images/bug06_validation_bypass.png)
 
 #### **2. Bug-07: Duplicate Phone Registration (Critical)**
 *Failure in data integrity validation allowing multiple accounts for the same number.*
-![Bug 07 Screenshot](.docs\images\bug07_duplicate_phone.png)
+![Bug 07 Screenshot](.docs/images/bug07_duplicate_phone.png)
 
 #### **3. Bug-12: Content Rendering Failure (Major)**
 *Broken UI layout and empty sections leading to high user friction.*
-![Bug 12 Screenshot](.docs\images\bug12_empty_arrival_page.png)
+![Bug 12 Screenshot](.docs/images/bug12_empty_arrival_page.png)
 
 > [!TIP]
 > Each bug report includes a high-resolution screenshot with **blue-border highlighting** (via `HighlightUtils`) for immediate visual identification.
