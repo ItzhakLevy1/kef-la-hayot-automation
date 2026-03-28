@@ -1,74 +1,63 @@
-🐾 Kef-La-Hayot Automation Project
-Comprehensive automation suite for testing the Kef-La-Hayot pet store website. This project focuses on identifying UI/UX bugs, broken links, and layout inconsistencies using modern automation practices.
+🐾 Kef-La-Hayot: Professional E2E Automation & QA Strategy
+🌟 Executive Summary
+This project is a comprehensive automation and manual testing suite for the "Kef-La-Hayot" e-commerce platform. It demonstrates a full QA lifecycle—from strategic planning (STP) to automated execution and executive reporting (STR).
+
+The highlight of this project is the discovery of 13 significant bugs, including a critical legal compliance blocker.
+
+📊 Project Insights & Presentation
+[!IMPORTANT]
+> **[📊 Click here to view the Interactive Project Presentation (STR)](https://docs.google.com/presentation/d/e/2PACX-1vTOF0UBZ5-NZYzlSUIyLPEaatsvW49CcG2ed1wF7Y3-O2SgaMuk_LUQ-zeYnDGO3-jr_kpn8P363piL/pub?start=true&loop=false&delayms=10000&slide=id.p)**
+Click here to view the Interactive Project Presentation (STR)
+Includes full bug analysis, risk assessment, and the final GO/NO-GO decision.
+
+🚀 Key Features & Architecture
+Hybrid Framework: Built with Selenium WebDriver and TestNG for robust E2E testing.
+
+Page Object Model (POM): Ensures high maintainability and clean code separation.
+
+Advanced Evidence Capturing: Integrated CDP (Chrome DevTools Protocol) to capture full-page screenshots of layout failures.
+
+Detailed Reporting: Allure Reports with step-by-step logging and dynamic attachments.
+
+🛠️ Tech Stack
+Category	Tool
+Language	Java 17+
+Automation	Selenium WebDriver
+Testing Framework	TestNG
+Reporting	Allure Framework
+Build Tool	Maven
 
 
-🚀 Project Overview
-This project was developed to ensure the quality and reliability of the "Kef-La-Hayot" e-commerce platform. It covers end-to-end scenarios, UI validation, and bug reporting integrated with professional visual evidence.
+🐞 Top Critical Findings
+Automation discovered 13 functional and UI/UX defects. Here are the top 3:
+
+ID	    Title	                        Severity	    Impact
+Bug-06	T&C Acceptance Bypass	        🛑 Blocker	    Legal & Compliance Risk
+Bug-07	Duplicate Phone Registration	🔴 Critical	    Data Integrity Issue
+Bug-12	Content Rendering Failure	    🟠 Major	    UX Friction / Empty States
 
 
-Key Features:
-Hybrid Framework: Built with Selenium WebDriver and TestNG.
+[!TIP]
+Each bug in the report includes a highlighted screenshot (using custom HighlightUtils) to point directly to the failure.
 
-Page Object Model (POM): Clean and maintainable code structure.
+🎞️ Visual Evidence
+Allure Reporting Dashboard
+A high-level view of test execution and severity distribution.
 
-Advanced Reporting: Integration with Allure Reports, including screenshots and custom attachments.
+Automation in Action
+Watch the Selenium suite performing cross-page validations.
 
-CDP Integration: Utilizing Chrome DevTools Protocol for full-page evidence capturing.
-
-Bug Lifecycle: Includes formal Bug Reports (TC-11, TC-12, TC-13 etc.) based on real findings.
-
-
-🛠 Tech Stack
-Language: Java
-
-Automation: Selenium WebDriver
-
-Testing Framework: TestNG
-
-Reporting: Allure Framework
-
-Build Tool: Maven
-
-
-🐛 Identified Bugs (Bug Log)
-ID	    Title	                    Severity	Evidence
-Bug-12	Empty Section on Links Page	Normal	[Allure Screenshot]
-
-
-Note: Detailed Bug Reports (including STP/STD) are located in the /docs folder of this repository.
-
-
-📊 Reports & Visuals
-Allure Reporting
-The suite generates detailed reports for every execution.
-
-Overview: Summarized pass/fail status.
-
-Behaviors: View results by Features and Stories (e.g., Links Page UI, Delivery UI).
-
-Attachments: Every failed test or UI bug includes high-resolution screenshots.
-
-[View Detailed Bug Reports](./docs/Bug_Reports.md)
-[View Test Plan (STP)](./docs/Test_Plan.md)
-
-
-Video Demo
-A full execution video of the automation suite can be viewed here: https://itzhak-levy-protfolio.netlify.app/.
-
-🔧 How to Run
-Clone the repository:
+🔧 Getting Started
+Clone & Navigate:
 
 
 git clone https://github.com/ItzhakLevy1/kef-la-hayot-automation.git
-Navigate to the directory:
-
-
 cd kef-la-hayot-automation
-Run tests via Maven:
+Run Tests:
 
 
 mvn clean test
-Generate Allure Report:
+Generate Report:
 
 
 allure serve target/allure-results
@@ -79,4 +68,4 @@ Itzhak Levy
 
 Full Stack Developer & QA Automation Engineer
 
-https://www.linkedin.com/in/itzhak-levy-66bb671bb/ | https://itzhak-levy-protfolio.netlify.app/
+https://www.linkedin.com/in/itzhak-levy-66bb671bb/ | https://itzhaklevy1.github.io/Portfolio-2026/
